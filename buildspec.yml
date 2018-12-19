@@ -1,35 +1,30 @@
-CodeBuildProject:
-  Type: AWS::CodeBuild::Project
-  Properties:
-    Artifacts:
-      Type: CODEPIPELINE
-    Source:
-      Type: CODEPIPELINE
-      BuildSpec: |
-        version: 0.2
-        phases:
-          pre_build:
-            commands:
-              - $(aws ecr get-login --no-include-email)
-              - TAG="$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | head -c 8)"
-              - IMAGE_URI="${REPOSITORY_URI}:${TAG}"
-          build:
-            commands:
-              - docker build --tag "$IMAGE_URI" .
-          post_build:
-            commands:
-              - docker push "$IMAGE_URI"
-              - printf '[{"name":"laravel","imageUri":"%s"}]' "$IMAGE_URI" > images.json
-        artifacts:
-          files: images.json
-    Environment:
-      ComputeType: BUILD_GENERAL1_SMALL
-      Image: aws/codebuild/docker:17.09.0
-      Type: LINUX_CONTAINER
-      EnvironmentVariables:
-        - Name: AWS_DEFAULT_REGION
-          Value: !Ref AWS::Region
-        - Name: REPOSITORY_URI
-          Value: !Sub ${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${Repository}
-    Name: !Ref AWS::StackName
-    ServiceRole: !Ref CodeBuildServiceRole
+version: 0.2
+
+run-as: Linux-user-name
+            
+phases:
+  install:
+    run-as: Linux-user-name
+    commands:
+
+    finally:
+
+  pre_build:
+    run-as: Linux-user-name
+    commands:
+
+    finally:
+
+  build:
+    run-as: Linux-user-name
+    commands:
+
+    finally:
+
+  post_build:
+    run-as: Linux-user-name
+    commands:
+
+    finally:
+
+
