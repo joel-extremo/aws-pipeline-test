@@ -1,57 +1,26 @@
 version: 0.2
 
-run-as: sudo
-            
 phases:
   install:
-    run-as: sudo
     commands:
-      
-      
+      - echo Entered the install phase...
     finally:
-      
-      
+      - echo This always runs even if the update or install command fails 
   pre_build:
-    run-as: sudo
     commands:
-      
-      
+      - echo Entered the pre_build phase...
     finally:
-      
-      
+      - echo This always runs even if the login command fails 
   build:
-    run-as: sudo
     commands:
-      
-      
+      - echo Entered the build phase...
+      - echo Build started on `date`
     finally:
-      
-      
+      - echo This always runs even if the install command fails
   post_build:
-    run-as: sudo
     commands:
-      
-      
-    finally:
-      
-      
-artifacts:
-  files:
-    
-    
-    
-  discard-paths: yes
-  base-directory: location
-  secondary-artifacts:
-    artifactIdentifier:
-      files:
-        
-        
-      discard-paths: yes
-      base-directory: location
-    artifactIdentifier:
-      files:
-        
-        
-      discard-paths: yes
-      base-directory: location
+      - echo Entered the post_build phase...
+      - echo Build completed on `date`
+cache:
+  paths:
+    - '/root/.m2/**/*'
