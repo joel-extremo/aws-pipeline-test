@@ -1,28 +1,28 @@
 version: 0.2
 
-run-as: Linux-user-name
+run-as: sudo
             
 phases:
   install:
-    run-as: Linux-user-name
+    run-as: sudo
     commands:
 
     finally:
 
   pre_build:
-    run-as: Linux-user-name
+    run-as: sudo
     commands:
 
     finally:
 
   build:
-    run-as: Linux-user-name
+    run-as: sudo
     commands:
 
     finally:
 
   post_build:
-    run-as: Linux-user-name
+    run-as: sudo
     commands:
 
     finally:
