@@ -6,25 +6,52 @@ phases:
   install:
     run-as: sudo
     commands:
-
+      
+      
     finally:
-
+      
+      
   pre_build:
     run-as: sudo
     commands:
-
+      
+      
     finally:
-
+      
+      
   build:
     run-as: sudo
     commands:
-
+      
+      
     finally:
-
+      
+      
   post_build:
     run-as: sudo
     commands:
-
+      
+      
     finally:
-
-
+      
+      
+artifacts:
+  files:
+    
+    
+    
+  discard-paths: yes
+  base-directory: location
+  secondary-artifacts:
+    artifactIdentifier:
+      files:
+        
+        
+      discard-paths: yes
+      base-directory: location
+    artifactIdentifier:
+      files:
+        
+        
+      discard-paths: yes
+      base-directory: location
