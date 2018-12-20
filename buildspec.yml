@@ -1,6 +1,10 @@
 version: 0.2
 
-run-as: sudo
+env:
+  variables:
+    JAVA_HOME: "/usr/lib/jvm/java-8-openjdk-amd64"
+  parameter-store:
+    LOGIN_PASSWORD: "dockerLoginPassword"
 
 phases:
   install:
@@ -27,15 +31,6 @@ artifacts:
   files:
     - target/messageUtil-1.0.jar
   discard-paths: yes
-secondary-artifacts:
-  artifact1:
-    files:
-      - target/messageUtil-1.0.jar
-    discard-paths: yes
-  artifact2:
-    files:
-      - target/messageUtil-1.0.jar
-    discard-paths: yes
 cache:
   paths:
     - '/root/.m2/**/*'
